@@ -21,7 +21,7 @@ def deal_card(turn):
 # calculate the total of each hand
 def total(turn):
     total = 0
-    face = 'J', 'Q', 'K'
+    face = ['J', 'Q', 'K']
     for card in turn:
         if card in range(1,11):
             total += card
@@ -34,9 +34,16 @@ def total(turn):
                 total += 11
     return total
 
-deal_card(player_hand)
-total(player_hand)
-
-print(player_hand, total(player_hand))
 # check for winner
+def reveal_dealer_hand():
+    if len(dealer_hand) == 2:
+        return dealer_hand[0]
+    elif len(dealer_hand) > 2:
+        return dealer_hand[0], dealer_hand[1]
+
+for _ in range(3):
+    deal_card(player_hand)
+    deal_card(dealer_hand)
+
+    print(reveal_dealer_hand(),player_hand,total(player_hand))
 # game loop
