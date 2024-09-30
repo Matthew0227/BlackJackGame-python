@@ -1,4 +1,7 @@
 import random
+#this tells that the player and dealer is playing at the beginning of the game
+player_in = True
+dealer_in = True
 
 # deck of cards /  player dealer hand
 deck = [2, 3, 4, 5, 6, 7, 8, 9, 10,
@@ -41,9 +44,27 @@ def reveal_dealer_hand():
     elif len(dealer_hand) > 2:
         return dealer_hand[0], dealer_hand[1]
 
-for _ in range(3):
-    deal_card(player_hand)
-    deal_card(dealer_hand)
-
-    print(reveal_dealer_hand(),player_hand,total(player_hand))
 # game loop
+
+#deals the card 2 times to both dealer and player at the beginning of the game
+for _ in range(2):
+    deal_card(dealer_hand)
+    deal_card(player_hand)
+
+while player_in or dealer_in:
+    print(f"Dealer had {reveal_dealer_hand()} and X")
+    print(f"You have {player_hand} for a total of {total(player_hand)}")
+    if player_in:
+        stay_or_hit = input("1: Stay\n2: Hit\n")
+    if total(dealer_hand) > 16:
+        dealer_in = False
+    else:
+        deal_card(dealer_hand)
+    if stay_or_hit == '1':
+        player_in = False
+    else:
+        deal_card(player_hand)
+    if total(player_hand) >= 21:
+        break
+    elif total(dealer_hand) >= 21:
+        break
