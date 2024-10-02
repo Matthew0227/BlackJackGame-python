@@ -69,6 +69,7 @@ while player_in or dealer_in:
     elif total(dealer_hand) >= 21:
         break
 
+#display for the result
 if total(player_hand) == 21:
     print(f"\nYou have {player_hand} for a total of {total(player_hand)} and the dealer has {dealer_hand} for a total of {total(dealer_hand)}")
     print("Blackjack! You win!")
