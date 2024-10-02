@@ -87,3 +87,6 @@ elif 21 - total(dealer_hand) < 21 - total(player_hand):
 elif 21 - total(dealer_hand) > 21 - total(player_hand):
     print(f"\nYou have {player_hand} for a total of {total(player_hand)} and the dealer has {dealer_hand} for a total of {total(dealer_hand)}")
     print("You win!")
+elif total(dealer_hand) == total(player_hand):
+    print(f"\nYou have {player_hand} for a total of {total(player_hand)} and the dealer has {dealer_hand} for a total of {total(dealer_hand)}")
+    print("It's a tie!")
